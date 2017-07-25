@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+}
+
+.gameBoardBackground{
+  background-color: skyblue;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+.gameBoard{
+  background-color: white;
+  margin: 10px;
+  width: 300px;
+  height: 400px;
+}
