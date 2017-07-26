@@ -1,6 +1,6 @@
 import Header from './Header'
 import Footer from './Footer'
-import GameBoard from './GameBoard'
+import Card from './Card'
 
 
-export { Header, Footer};
+export { Header, Footer, Card};
