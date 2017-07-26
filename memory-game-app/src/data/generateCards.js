@@ -14,8 +14,8 @@ function generateCards() {
     )
   }
   shuffle(cards)
+  return cards
 }
-generateCards()
 
 //add 8 matching cards to 'cards' array and run a shuffle function
 function shuffle(card) {
@@ -25,3 +25,5 @@ function shuffle(card) {
         [card[i - 1], card[j]] = [card[j], card[i - 1]];
     }
 }
+
+export default generateCards

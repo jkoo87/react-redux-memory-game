@@ -1,0 +1,27 @@
+.gameBoard{
+  background-color: skyblue;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.gameButton{
+  position: absolute;
+  top: 0;
+}
+
+.cardsWrapper{
+  min-width: 700px;
+  max-width: 700px;
+}
+
+.card {
+  width: 150px;
+  height: 150px;
+  border: 2px solid;
+  background-color: black;
+  border-radius: 10px;
+  display: inline-block;
+}

@@ -1,16 +1,4 @@
-
 .App {
   text-align: center;
   height: 100vh;
-}
-
-.gameBoardBackground{
-  background-color: skyblue;
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  overflow: auto;
 }
