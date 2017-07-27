@@ -7,7 +7,7 @@ class Header extends Component {
         return (
 
             <div className="header">
-              <div className="item" >MEMORY GAME</div>
+              <div className="item" >MEMORY GAME<br/><hr/>with React and Redux</div>
             </div>
 
         );

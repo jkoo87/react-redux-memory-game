@@ -4,17 +4,17 @@
   width:100%;
   height: 60px;
   position: absolute;
-  top: 40%;
+  top: 45%;
   z-index: 999;
 }
 
 .scoreBoard--active{
-  background: rgba(255, 0, 0, 0.3);
+  background: rgba(255, 50, 50, 0.3);
   border-radius: 10px;
   margin: 0 auto;
   margin-top: 10px;
   width:80%;
-  height: 40px;
+  height: 60px;
   position: relative;
   transition: 1s ease-out;
 }
@@ -27,6 +27,7 @@
   background-color: white;
   border-radius: 10px;
   animation: titleButtonLight 0.9s infinite;
+  cursor: pointer;
 }
 
 @keyframes titleButtonLight {
@@ -45,6 +46,7 @@
 
 .gameButton--active{
   position: absolute;
+  top: 10px;
   right: 30px;
   height: 40px;
   transition: 0.8s ease-out;

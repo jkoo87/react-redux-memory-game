@@ -1,26 +1,29 @@
 .card, .initialCardsWrapper{
   position: relative;
+  display: inline-block;
+  transition: 0.7s ease-out;
+}
+
+.card{
   width: 130px;
   height: 130px;
-  border-radius: 10px;
-  display: inline-block;
-  transition: 0.3s ease-out;
-}
-.card{
   cursor: pointer;
-  margin: 0 2.5px;
+  margin: 0 3px;
+  border-radius: 20px;
 }
 .initialCardsWrapper{
-  cursor:default;
-}
-.initialCardsWrapper{
+  border-radius: 10px;
   border: 2px solid;
+  cursor:default;
+  width: 120px;
+  height: 120px;
 }
+
 .initialCards{
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-    border: 2px solid;
+  border: 2px solid;
 }
 
 .cardFront, .cardBack {
@@ -28,7 +31,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  border-radius: 10px;
+  border-radius: 20px;
   border: 2px solid;
   top: 0;
   left: 0;
@@ -75,13 +78,16 @@
 }*/
 
 .gameName, .gameNameOn{
-  line-height: 134px;
   vertical-align: middle;
   color: rgba(255, 255, 255, 0.8);
   transition: 0.3s ease-out;
 }
+.gameName, .gameNameOn{
+  line-height: 120px;
+}
 
 .gameNameOn{
+  line-height: 134px;
   font-size: 50px;
   color: rgba(255, 255, 255, 1);
 }

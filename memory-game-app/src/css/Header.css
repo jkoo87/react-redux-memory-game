@@ -14,8 +14,27 @@
   text-decoration: none;
   font-size: 1.1rem;
 }
+hr {
+  width: 175px;
+  margin: 0 auto;
+  border-color: gold;
+  background-color: gold;
+  animation: lineEffect 5s 1;
+}
 
-.item:hover {
+@keyframes lineEffect {
+  from{
+    width: 0;
+    border-color: white;
+    background-color: white;
+  }
+  to{
+    width: 175px;
+    border-color: gold;
+    background-color: gold;
+  }
+}
+/*.item:hover {
   background: grey;
   transition: 1s ease-out;
-}
+}*/
