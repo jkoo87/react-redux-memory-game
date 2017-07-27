@@ -14,8 +14,12 @@
   text-decoration: none;
   font-size: 1.1rem;
 }
+.subTitle{
+  font-size: 15px;
+}
+
 hr {
-  width: 175px;
+  width: 150px;
   margin: 0 auto;
   border-color: gold;
   background-color: gold;
@@ -29,7 +33,7 @@ hr {
     background-color: white;
   }
   to{
-    width: 175px;
+    width: 150px;
     border-color: gold;
     background-color: gold;
   }

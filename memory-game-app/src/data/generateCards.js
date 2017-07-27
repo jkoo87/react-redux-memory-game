@@ -26,4 +26,5 @@ function shuffle(card) {
     }
 }
 
+
 export default generateCards

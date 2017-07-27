@@ -8,15 +8,47 @@ import '../css/GameBoard.css'
 
 class GameBoard extends Component {
 
+
     render() {
+
+      let cardsList=[]
+      let initialCards = []
+      let cardFrontStyle = {
+        backgroundImage: 'url(assets/img/back.jpg)',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover'
+      }
+
+      //initial card background
+      for(let i=0; i < 16; i++){
+        initialCards.push(<div key={i} className="initialCardsWrapper" style={cardFrontStyle}><span className="gameName">Memory Game</span></div>)
+      }
+
+      //generate cards
+      let cards = this.props.cards
+
+      cards = cards.map((card, i) => {
+        return (
+                <div className={card.flipped? "card_active" : "card"} key={i}>
+                  <Card
+                  index={i}
+                  card={card}
+                  flipCard={this.props.flipCard}
+                  />
+                </div>
+            )
+      })
+      console.log(this.props.cards)
+      //If this.props.isStarting === true, show generated cards
+      cardsList = this.props.isStarting? cards : initialCards
+
 
         return (
             <div className="gameBoard">
-              <Card
-              cards={this.props.cards}
-              isStarting={this.props.isStarting}
-
-              />
+              <div className="cardsWrapper">
+                {cardsList}
+              </div>
             </div>
         );
     }
@@ -25,7 +57,8 @@ class GameBoard extends Component {
 const mapStateToProps = (state) => {
   return{
     cards: state.game.cards,
-    isStarting: state.game.isStarting
+    isStarting: state.game.isStarting,
+    score: state.game.score
   }
 }
 

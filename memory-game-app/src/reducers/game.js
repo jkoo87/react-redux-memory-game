@@ -15,7 +15,18 @@ export default function game (state=INITIAL_STATE, action){
       return {
         ...state,
         cards: generateCards(),
-        isStarting: true
+        isStarting: true,
+      }
+    case types.FLIP_CARD:
+      return{
+        ...state,
+        cards: state.cards.map((card, i) => i === action.index ?
+            // transform the one with a matching index
+            { ...card, flipped: true } :
+            // otherwise return original card
+            card
+        )
+
       }
 
     default:

@@ -1,11 +1,13 @@
 .footer {
   padding: 1rem;
-  background-color: gold;
+  background-color: black;
 }
 a{
   display: inline-block;
   text-decoration: none;
   padding: 2px;
+  color: white;
+  border-radius: 5px;
 }
 
 a:hover{

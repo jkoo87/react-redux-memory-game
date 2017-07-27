@@ -1,10 +1,10 @@
-.card, .initialCardsWrapper{
+.card, .card_active, .initialCardsWrapper{
   position: relative;
   display: inline-block;
   transition: 0.7s ease-out;
 }
 
-.card{
+.card, .card_active{
   width: 130px;
   height: 130px;
   cursor: pointer;
@@ -67,15 +67,15 @@
   color: gold;
 }
 
-/*.card:hover .cardFront {
+.card_active .cardFront {
   -webkit-transform: rotateY(-180deg);
           transform: rotateY(-180deg);
 }
 
-.card:hover .cardBack {
+.card_active .cardBack {
   -webkit-transform: rotateY(0);
           transform: rotateY(0);
-}*/
+}
 
 .gameName, .gameNameOn{
   vertical-align: middle;

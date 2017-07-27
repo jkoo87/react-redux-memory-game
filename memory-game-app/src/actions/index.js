@@ -12,8 +12,9 @@ export function matchCard() {
  }
 }
 
-export function flipCard() {
+export function flipCard(index) {
  return{
-   type: types.FLIP_CARD
+   type: types.FLIP_CARD,
+   index
  }
 }
