@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Header, Footer} from './components'
-import { GameBoard } from './containers'
+import { GameBoard, ScoreBoard } from './containers'
 import './css/App.css';
 
 class App extends Component {
@@ -8,6 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header/>
+        <ScoreBoard/>
         <GameBoard/>
         <Footer/>
       </div>

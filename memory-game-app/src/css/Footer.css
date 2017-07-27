@@ -2,3 +2,13 @@
   padding: 1rem;
   background-color: gold;
 }
+a{
+  display: inline-block;
+  text-decoration: none;
+  padding: 2px;
+}
+
+a:hover{
+  background-color: grey;
+  transition: 0.5s ease;
+}

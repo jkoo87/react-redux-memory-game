@@ -10,7 +10,6 @@ class Card extends Component {
 
 
       cards = cards.map((card, i) => {
-        console.log(card.img)
         let cardStyle = {
           backgroundImage: 'url(' + card.img + ')'
         }

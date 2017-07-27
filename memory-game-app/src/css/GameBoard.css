@@ -1,69 +1,41 @@
 .gameBoard{
-  background-color: skyblue;
-  height: 100vh;
+  height: 85vh;
+  text-align: center;
+  text-align: -webkit-center;
+  text-align: -moz-center;
   display: flex;
-  align-items: center;
   justify-content: center;
-  position: relative;
-}
-
-.gameButton{
-  height: 50px;
-  position: absolute;
-  background: white;
-  transition: 1.2s ease-out;
-  animation: titleButtonLight 0.9s 30;
-}
-
-@keyframes titleButtonLight {
-  from{
-    background-color: white;
-  }
-  to{
-    background-color: gold;
-  }
-}
-
-.gameButton:hover{
-  border-radius: 10px;
-  transition: 0.8s ease-out;
-}
-
-.gameButton--active{
-  position: absolute;
-  top: 0;
-  animation: smokeEffect 1s forwards;
-}
-
-@keyframes smokeEffect{
-  from {
-    transform: rotate(15deg) translateY(-200px);
-    -webkit-transform: rotate(15deg) translateY(-200px);
-    opacity: 0;
-    -webkit-filter: blur(20px);
-    filter: blur(20px);
-  }
-  to {
-    transform: rotate(0deg) translateY(0px);
-    -webkit-transform: rotate(0deg) translateY(0px);
-    opacity: 1;
-    -webkit-filter: blur(1px);
-    filter: blur(0px);
-  }
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: auto;
 }
 
 .cardsWrapper{
-  min-width: 700px;
-  max-width: 700px;
+  min-width: 550px;
+  max-width: 550px;
+}
+.gameName{
+  line-height: 134px;
+  vertical-align: middle;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .card {
   background-position: center;
   background-repeat: no-repeat;
-  width: 150px;
-  height: 150px;
+  background-size: cover;
+  width: 130px;
+  height: 130px;
   border: 2px solid;
-  background-color: black;
+  background-color: white;
   border-radius: 10px;
   display: inline-block;
+  transition: 0.3s ease-out;
+}
+
+.card:hover{
+  transform: rotateY( 20deg );
+  -ms-transform: rotateY( 20deg );
+  -webkit-transform: rotateY( 20deg );
+  transition: 0.8s ease-out;
 }

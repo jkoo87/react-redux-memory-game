@@ -1,4 +1,4 @@
 import GameBoard from './GameBoard'
+import ScoreBoard from './ScoreBoard'
 
-
-export { GameBoard };
+export { GameBoard, ScoreBoard };
