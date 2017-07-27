@@ -8,8 +8,48 @@
 }
 
 .gameButton{
+  height: 50px;
+  position: absolute;
+  background: white;
+  transition: 1.2s ease-out;
+  animation: titleButtonLight 0.9s 30;
+}
+
+@keyframes titleButtonLight {
+  from{
+    background-color: white;
+  }
+  to{
+    background-color: gold;
+  }
+}
+
+.gameButton:hover{
+  border-radius: 10px;
+  transition: 0.8s ease-out;
+}
+
+.gameButton--active{
   position: absolute;
   top: 0;
+  animation: smokeEffect 1s forwards;
+}
+
+@keyframes smokeEffect{
+  from {
+    transform: rotate(15deg) translateY(-200px);
+    -webkit-transform: rotate(15deg) translateY(-200px);
+    opacity: 0;
+    -webkit-filter: blur(20px);
+    filter: blur(20px);
+  }
+  to {
+    transform: rotate(0deg) translateY(0px);
+    -webkit-transform: rotate(0deg) translateY(0px);
+    opacity: 1;
+    -webkit-filter: blur(1px);
+    filter: blur(0px);
+  }
 }
 
 .cardsWrapper{
@@ -18,6 +58,8 @@
 }
 
 .card {
+  background-position: center;
+  background-repeat: no-repeat;
   width: 150px;
   height: 150px;
   border: 2px solid;

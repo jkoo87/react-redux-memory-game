@@ -9,7 +9,7 @@ function generateCards() {
         cardName: `card${i}`,
         flipped: false,
         matched: false,
-        img: `./assets/img/${i}.png`
+        img: `assets/img/${i}.png`
       }
     )
   }
