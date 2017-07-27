@@ -9,25 +9,14 @@ import '../css/GameBoard.css'
 class GameBoard extends Component {
 
     render() {
-        let cardList=[]
-        let initialCards = []
-        let cardStyle = {
-          backgroundImage: 'url(assets/img/back.jpg)'
-        }
-        for(let i=0; i < 16; i++){
-          initialCards.push(<div key={i} className="card" style={cardStyle}><span className="gameName">Memory Game</span></div>)
-        }
-
-
-        //If this.props.isStarting === true, show generated cards
-        cardList = this.props.isStarting? <Card cards={this.props.cards} /> : initialCards
-
 
         return (
             <div className="gameBoard">
-              <div className="cardsWrapper">
-                {cardList}
-              </div>
+              <Card
+              cards={this.props.cards}
+              isStarting={this.props.isStarting}
+
+              />
             </div>
         );
     }

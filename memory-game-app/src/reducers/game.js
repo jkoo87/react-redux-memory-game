@@ -3,7 +3,9 @@ import generateCards from '../data/generateCards'
 
 const INITIAL_STATE = {
   cards: [],
-  isStarting: false
+  isStarting: false,
+  score: 0,
+  highestScore: 0
 }
 
 

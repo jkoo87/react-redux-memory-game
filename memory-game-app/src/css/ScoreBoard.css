@@ -10,6 +10,7 @@
 
 .scoreBoard--active{
   background: rgba(255, 0, 0, 0.3);
+  border-radius: 10px;
   margin: 0 auto;
   margin-top: 10px;
   width:80%;
@@ -20,10 +21,11 @@
 
 .gameButton{
   padding: 0 10px;
-  font-size: 20px;
+  font-size: 15px;
   height: 60px;
-  transition: 1.2s ease-out;
+  transition: 0.8s ease-out;
   background-color: white;
+  border-radius: 10px;
   animation: titleButtonLight 0.9s infinite;
 }
 
@@ -36,10 +38,9 @@
   }
 }
 
-.gameButton:hover, .gameButton--active:hover {
+.gameButton--active:hover {
   background-color: gold;
-  border-radius: 10px;
-  transition: 0.8s ease-out;
+  transition: 0.3s ease-out;
 }
 
 .gameButton--active{
@@ -47,7 +48,8 @@
   right: 30px;
   height: 40px;
   transition: 0.8s ease-out;
-  animation: buttonIn 1s forwards;
+  background-color: white;
+  animation: buttonIn 0.3s forwards;
 }
 
 @keyframes buttonIn{
