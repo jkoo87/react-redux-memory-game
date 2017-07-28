@@ -41,10 +41,26 @@ export default function game (state=INITIAL_STATE, action){
 
       case types.MATCH_CARD:
         const selectedCards = action.flippedCard
-        console.log('hi',selectedCards)
-        return{
-          ...state
-        }
+        console.log(selectedCards[0].cardName === selectedCards[1].cardName)
+        if(selectedCards[0].cardName === selectedCards[1].cardName){
+          return {
+            ...state,
+            isLocked: false,
+            cards: state.cards.map((card) => card.cardName === selectedCards[0].cardName ?
+                { ...card, matched: true } :
+                card
+            )
+          }
+        } else if(selectedCards[0].cardName !== selectedCards[1].cardName){
+          return {
+            ...state,
+            isLocked: false,
+            cards: state.cards.map((card) => card.cardName === selectedCards[0].cardName || card.cardName === selectedCards[1].cardName ?
+                { ...card, flipped: false } :
+                card
+            )
+          }
+        } else return state
 
 
     default:

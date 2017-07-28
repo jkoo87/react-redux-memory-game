@@ -16,16 +16,17 @@ class GameBoard extends Component {
       if(flippedCard.length === 2){
         this.props.lockCard()
         if(this.props.isLocked) {
-          // setTimeout(()=>{
+          setTimeout(()=>{
             this.props.matchCard(flippedCard)
-          // }, 500)
+            flippedCard=[]
+          }, 500)
         }
       }
     }
 
 
     render() {
-      console.log(this.props)
+
       let cardsList=[]
       let initialCards = []
       let cardFrontStyle = {

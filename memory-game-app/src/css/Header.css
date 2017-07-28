@@ -3,6 +3,7 @@
   display: table;
   table-layout: fixed;
   width:100%;
+  height: 80px;
 }
 
 .item{
@@ -16,6 +17,19 @@
 }
 .subTitle{
   font-size: 15px;
+  animation: subTitleEffect 4.5s 1;
+}
+
+@keyframes subTitleEffect {
+  0%{
+    font-size: 0px;
+  }
+  60%{
+    font-size: 0px;
+  }
+  100%{
+    font-size: 15px;
+  }
 }
 
 hr {
