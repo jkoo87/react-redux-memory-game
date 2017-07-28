@@ -2,11 +2,11 @@
   position: relative;
   display: inline-block;
   transition: 0.7s ease-out;
+  width: 120px;
+  height: 120px;
 }
 
 .card, .card_active{
-  width: 130px;
-  height: 130px;
   cursor: pointer;
   margin: 0 3px;
   border-radius: 20px;
@@ -15,8 +15,6 @@
   border-radius: 10px;
   border: 2px solid;
   cursor:default;
-  width: 120px;
-  height: 120px;
 }
 
 .initialCards{
@@ -88,17 +86,17 @@
 }
 
 .gameNameOn{
-  line-height: 134px;
+  line-height: 124px;
   font-size: 50px;
-  color: rgba(255, 255, 255, 1);
 }
 
 @media only screen and (max-device-width: 480px) {
 
-  .card {
+  .card, .card_active, .initialCardsWrapper {
     width: 80px;
     height: 80px;
   }
+
   .gameName{
     font-size: 0.6em;
     line-height: 80px;
