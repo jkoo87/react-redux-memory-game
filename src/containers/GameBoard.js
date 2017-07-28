@@ -9,14 +9,18 @@ import '../css/GameBoard.css'
 class GameBoard extends Component {
 
     componentDidUpdate(){
+
       if(this.props.show){
-        setTimeout(()=>{
-          this.props.showCard()
-        }, 100)
+        this.props.cards.map((card, i)=>{
+          return setTimeout(()=>{
+            this.props.showCard(card)
+          }, 100 + i*130)
+        })
         setTimeout(()=>{
           this.props.hideCard()
-        }, 3000)
+        }, 4000)
       }
+
 
       //put flipped cards into an array and pass them to reducers
       let flippedCard = this.props.cards.filter ((card) => {
@@ -31,6 +35,14 @@ class GameBoard extends Component {
             flippedCard=[]
           }, 500)
         }
+      }
+
+      let complete = this.props.cards.filter ((card) => {
+        return card.flipped === true && card.matched === true
+      })
+
+      if(complete.length === this.props.cards.length){
+        this.props.gameComplete()
       }
 
 
@@ -75,11 +87,14 @@ class GameBoard extends Component {
       //If this.props.isStarting === true, show generated cards
       cardsList = this.props.isStarting? cards : initialCards
 
+      let gameBoardComplete = this.props.isCompleted? "gameBoard_complete" : "gameBoard"
+
         return (
-            <div className="gameBoard">
+            <div className={gameBoardComplete}>
               <div className="cardsWrapper">
                 {cardsList}
               </div>
+              <div className="gameBoardBack"></div>
             </div>
         );
     }
@@ -90,7 +105,8 @@ const mapStateToProps = (state) => {
     cards: state.game.cards,
     isStarting: state.game.isStarting,
     isLocked: state.game.isLocked,
-    show: state.game.show
+    show: state.game.show,
+    isCompleted: state.game.isCompleted
   }
 }
 

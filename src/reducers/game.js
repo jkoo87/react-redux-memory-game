@@ -3,9 +3,10 @@ import generateCards from '../data/generateCards'
 
 const INITIAL_STATE = {
   cards: [],
-  // matchCardArray: [],
   isStarting: false,
+  scoreOn: false,
   isLocked: false,
+  isCompleted: false,
   score: 0,
   show: true,
   highestScore: 0
@@ -22,26 +23,26 @@ export default function game (state=INITIAL_STATE, action){
         show: true
       }
 
-  case types.SHOW_CARD:
-    return {
-      ...state,
-      show: false,
-      cards: state.cards.map((card, i)=>{
-        return {
-          ...card,
-          ...card.flipped= true
-        }
-      })
+    case types.SHOW_CARD:
+      return{
+        ...state,
+        show: false,
+        score: 0,
+        cards: state.cards.map((card, i) => card.cardName === action.card.cardName ?
+            { ...card, flipped: true } :
+            card
+        )
     }
 
     case types.HIDE_CARD:
       return {
         ...state,
-        show: false,
+        score: 0,
+        scoreOn: true,
         cards: state.cards.map((card, i)=>{
           return {
             ...card,
-            ...card.flipped= false
+            ...card.flipped= false, ...card.matched=false
           }
         })
       }
@@ -65,9 +66,10 @@ export default function game (state=INITIAL_STATE, action){
 
       case types.MATCH_CARD:
         const selectedCards = action.flippedCard
-        if(selectedCards[0].cardName === selectedCards[1].cardName){
+        if(selectedCards[0].cardName === selectedCards[1].cardName ){
           return {
             ...state,
+            score: state.score + 40,
             isLocked: false,
             cards: state.cards.map((card) => card.cardName === selectedCards[0].cardName ?
                 { ...card, matched: true } :
@@ -77,6 +79,7 @@ export default function game (state=INITIAL_STATE, action){
         } else if(selectedCards[0].cardName !== selectedCards[1].cardName){
           return {
             ...state,
+            score: state.score - 10,
             isLocked: false,
             cards: state.cards.map((card) => card.cardName === selectedCards[0].cardName || card.cardName === selectedCards[1].cardName ?
                 { ...card, flipped: false } :
@@ -84,6 +87,21 @@ export default function game (state=INITIAL_STATE, action){
             )
           }
         } else return state
+
+      case types.COMPLETE:
+        return{
+          ...state,
+          isCompleted: true
+        }
+
+      case types.SET_SCORE:
+        console.log(state.highestScore < action.score)
+        if(state.highestScore < action.score){
+        return{
+          ...state,
+          highestScore: action.score
+        }
+      }else return state
 
 
     default:

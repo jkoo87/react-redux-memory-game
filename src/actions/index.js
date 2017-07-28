@@ -6,9 +6,10 @@ export function startGame() {
  }
 }
 
-export function showCard() {
+export function showCard(card) {
  return{
    type: types.SHOW_CARD,
+   card
  }
 }
 
@@ -36,5 +37,18 @@ export function matchCard(flippedCard) {
  return{
    type: types.MATCH_CARD,
    flippedCard
+ }
+}
+
+export function gameComplete() {
+ return{
+   type: types.COMPLETE,
+ }
+}
+
+export function setHighScore(score) {
+ return{
+   type: types.SET_SCORE,
+   score
  }
 }
