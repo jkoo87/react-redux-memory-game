@@ -26,7 +26,7 @@ class Card extends Component {
         return (
             <div onClick={this.handleClickFlipCard.bind(this)}>
               <div className="cardFront" style={cardFrontStyle}><span className="gameNameOn">?</span></div>
-              <div className="cardBack" style={cardStyle}>{this.props.card.cardName}</div>
+              <div className="cardBack" style={cardStyle}></div>
             </div>
         );
     }
