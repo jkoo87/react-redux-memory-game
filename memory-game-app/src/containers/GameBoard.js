@@ -7,10 +7,25 @@ import * as actions from '../actions';
 import '../css/GameBoard.css'
 
 class GameBoard extends Component {
+    componentDidUpdate(){
+
+      let flippedCard = this.props.cards.filter ((card) => {
+        return card.flipped === true && card.matched === false
+      })
+
+      if(flippedCard.length === 2){
+        this.props.lockCard()
+        if(this.props.isLocked) {
+          // setTimeout(()=>{
+            this.props.matchCard(flippedCard)
+          // }, 500)
+        }
+      }
+    }
 
 
     render() {
-
+      console.log(this.props)
       let cardsList=[]
       let initialCards = []
       let cardFrontStyle = {
@@ -28,21 +43,24 @@ class GameBoard extends Component {
       //generate cards
       let cards = this.props.cards
 
+
       cards = cards.map((card, i) => {
         return (
                 <div className={card.flipped? "card_active" : "card"} key={i}>
                   <Card
                   index={i}
                   card={card}
+                  isLocked={this.props.isLocked}
                   flipCard={this.props.flipCard}
+                  lockCard={this.props.lockCard}
+                  matchCard={this.props.matchCard}
                   />
                 </div>
             )
       })
-      console.log(this.props.cards)
+
       //If this.props.isStarting === true, show generated cards
       cardsList = this.props.isStarting? cards : initialCards
-
 
         return (
             <div className="gameBoard">
@@ -58,6 +76,7 @@ const mapStateToProps = (state) => {
   return{
     cards: state.game.cards,
     isStarting: state.game.isStarting,
+    isLocked: state.game.isLocked,
     score: state.game.score
   }
 }

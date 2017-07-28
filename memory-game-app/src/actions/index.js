@@ -6,15 +6,23 @@ export function startGame() {
  }
 }
 
-export function matchCard() {
+export function flipCard(index, cardName) {
  return{
-   type: types.MATCH_CARD
+   type: types.FLIP_CARD,
+   index,
+   cardName
  }
 }
 
-export function flipCard(index) {
+export function lockCard() {
  return{
-   type: types.FLIP_CARD,
-   index
+   type: types.LOCK_CARD,
+ }
+}
+
+export function matchCard(flippedCard) {
+ return{
+   type: types.MATCH_CARD,
+   flippedCard
  }
 }

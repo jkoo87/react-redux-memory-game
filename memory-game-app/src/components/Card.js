@@ -4,9 +4,10 @@ import '../css/Card.css'
 
 class Card extends Component {
 
-    handleClickFlipCard(e){
-      e.preventDefault()
-      this.props.flipCard(this.props.index)
+    handleClickFlipCard(){
+      if(!this.props.isLocked){
+        this.props.flipCard(this.props.index, this.props.card.cardName)
+      }
     }
 
     render() {

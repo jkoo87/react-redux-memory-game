@@ -84,6 +84,7 @@
 }
 .gameName, .gameNameOn{
   line-height: 120px;
+  font-weight: bold;
 }
 
 .gameNameOn{
