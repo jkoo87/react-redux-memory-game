@@ -7,8 +7,18 @@ import * as actions from '../actions';
 import '../css/GameBoard.css'
 
 class GameBoard extends Component {
-    componentDidUpdate(){
 
+    componentDidUpdate(){
+      if(this.props.show){
+        setTimeout(()=>{
+          this.props.showCard()
+        }, 100)
+        setTimeout(()=>{
+          this.props.hideCard()
+        }, 3000)
+      }
+
+      //put flipped cards into an array and pass them to reducers
       let flippedCard = this.props.cards.filter ((card) => {
         return card.flipped === true && card.matched === false
       })
@@ -22,6 +32,8 @@ class GameBoard extends Component {
           }, 500)
         }
       }
+
+
     }
 
 
@@ -78,7 +90,7 @@ const mapStateToProps = (state) => {
     cards: state.game.cards,
     isStarting: state.game.isStarting,
     isLocked: state.game.isLocked,
-    score: state.game.score
+    show: state.game.show
   }
 }
 

@@ -7,6 +7,7 @@ const INITIAL_STATE = {
   isStarting: false,
   isLocked: false,
   score: 0,
+  show: true,
   highestScore: 0
 }
 
@@ -18,7 +19,31 @@ export default function game (state=INITIAL_STATE, action){
         ...state,
         cards: generateCards(),
         isStarting: true,
-        isLocked: false,
+        show: true
+      }
+
+  case types.SHOW_CARD:
+    return {
+      ...state,
+      show: false,
+      cards: state.cards.map((card, i)=>{
+        return {
+          ...card,
+          ...card.flipped= true
+        }
+      })
+    }
+
+    case types.HIDE_CARD:
+      return {
+        ...state,
+        show: false,
+        cards: state.cards.map((card, i)=>{
+          return {
+            ...card,
+            ...card.flipped= false
+          }
+        })
       }
 
       case types.FLIP_CARD:
@@ -32,7 +57,6 @@ export default function game (state=INITIAL_STATE, action){
               )
             }
 
-
       case types.LOCK_CARD:
         return{
           ...state,
@@ -41,7 +65,6 @@ export default function game (state=INITIAL_STATE, action){
 
       case types.MATCH_CARD:
         const selectedCards = action.flippedCard
-        console.log(selectedCards[0].cardName === selectedCards[1].cardName)
         if(selectedCards[0].cardName === selectedCards[1].cardName){
           return {
             ...state,
