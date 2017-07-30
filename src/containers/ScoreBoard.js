@@ -9,9 +9,9 @@ class ScoreBoard extends Component {
 
 
     componentDidUpdate(){
-      if(this.props.isCompleted){
+      // if(this.props.isCompleted){
         this.props.setHighScore(this.props.score)
-      }
+      // }
 
 
     }

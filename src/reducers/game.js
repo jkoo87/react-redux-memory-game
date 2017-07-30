@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   cards: [],
   isStarting: false,
   scoreOn: false,
+  gameOn: false,
   isLocked: false,
   isCompleted: false,
   score: 0,
@@ -20,7 +21,8 @@ export default function game (state=INITIAL_STATE, action){
         ...state,
         cards: generateCards(),
         isStarting: true,
-        show: true
+        show: true,
+        gameOn: false
       }
 
     case types.SHOW_CARD:
@@ -28,7 +30,7 @@ export default function game (state=INITIAL_STATE, action){
         ...state,
         show: false,
         score: 0,
-        cards: state.cards.map((card, i) => card.cardName === action.card.cardName ?
+        cards: state.cards.map((card, i) => i === action.card[0] ?
             { ...card, flipped: true } :
             card
         )
@@ -39,6 +41,7 @@ export default function game (state=INITIAL_STATE, action){
         ...state,
         score: 0,
         scoreOn: true,
+        gameOn: true,
         cards: state.cards.map((card, i)=>{
           return {
             ...card,
@@ -95,7 +98,6 @@ export default function game (state=INITIAL_STATE, action){
         }
 
       case types.SET_SCORE:
-        console.log(state.highestScore < action.score)
         if(state.highestScore < action.score){
         return{
           ...state,

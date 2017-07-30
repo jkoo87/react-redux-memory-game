@@ -6,6 +6,7 @@ function generateCards() {
   for(let i=0; i < 8; i++){
     cards.push(
       {
+        id: i,
         cardName: `card${i}`,
         flipped: false,
         matched: false,

@@ -9,23 +9,29 @@ import '../css/GameBoard.css'
 class GameBoard extends Component {
 
     componentDidUpdate(){
+      //show cards on random when start/reset button clicked
 
       if(this.props.show){
-        this.props.cards.map((card, i)=>{
-          return setTimeout(()=>{
-            this.props.showCard(card)
+        let indexArray = [...Array(this.props.cards.length).keys()]
+        for(let i = 0; i < this.props.cards.length; i++){
+          let randomNumber = Math.floor(Math.random() * indexArray.length)
+          let selected = indexArray.splice(randomNumber, 1)
+          setTimeout(()=>{
+              this.props.showCard(selected)
           }, 100 + i*130)
-        })
+        }
         setTimeout(()=>{
           this.props.hideCard()
         }, 4000)
       }
 
-
       //put flipped cards into an array and pass them to reducers
-      let flippedCard = this.props.cards.filter ((card) => {
-        return card.flipped === true && card.matched === false
-      })
+      let flippedCard = []
+      if(this.props.gameOn){
+        flippedCard = this.props.cards.filter ((card) => {
+          return card.flipped === true && card.matched === false
+        })
+      }
 
       if(flippedCard.length === 2){
         this.props.lockCard()
@@ -43,6 +49,9 @@ class GameBoard extends Component {
 
       if(complete.length === this.props.cards.length){
         this.props.gameComplete()
+        setTimeout(()=>{
+          this.props.startGame()
+        }, 2400)
       }
 
 
@@ -105,6 +114,7 @@ const mapStateToProps = (state) => {
     cards: state.game.cards,
     isStarting: state.game.isStarting,
     isLocked: state.game.isLocked,
+    gameOn: state.game.gameOn,
     show: state.game.show,
     isCompleted: state.game.isCompleted
   }
