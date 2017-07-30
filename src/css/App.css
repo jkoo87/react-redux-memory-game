@@ -9,6 +9,26 @@
   padding: 0;
 }
 
+.loaderWrapper{
+  position: absolute;
+  display: block;
+  height: 100px;
+  width: 100%;
+  z-index: 999;
+  top: -30px;
+}
+.loader{
+  display: inline-block;
+  color: white;
+  animation: titleButtonLight 0.9s infinite;
+  text-shadow: 2px 2px 2px rgba(0,0,0, 1);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+
+
+
 @media only screen and (max-device-width: 480px) {
 
   .App {

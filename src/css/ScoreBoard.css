@@ -26,6 +26,7 @@
   background-color: white;
   animation: titleButtonLight 0.9s infinite;
   cursor: pointer;
+  animation: smokeEffect .9s forwards;
 }
 
 .gameButton:hover {
