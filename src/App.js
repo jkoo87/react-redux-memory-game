@@ -4,22 +4,25 @@ import { GameBoard, ScoreBoard } from './containers'
 import './css/App.css';
 
 class App extends Component {
-  constructor(props){
-    super(props)
-    this.state = {isLoading: true}
+  constructor() {
+    super()
+    this.state = {
+      loading: true
+    }
   }
-  componentDidMount(){
+  componentDidMount() {
     this.setState({
-      isLoading: false
+      loading: false
     })
   }
 
   render() {
+
     return (
       <div className="App">
         <Header/>
         <ScoreBoard
-          isLoading={this.state.isLoading}
+          loading={this.state.loading}
         />
         <GameBoard/>
         <Footer/>

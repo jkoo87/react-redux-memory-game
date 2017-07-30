@@ -12,8 +12,6 @@ class ScoreBoard extends Component {
       // if(this.props.isCompleted){
         this.props.setHighScore(this.props.score)
       // }
-
-
     }
 
     render() {
@@ -28,11 +26,11 @@ class ScoreBoard extends Component {
         //If this.props.isStarting === true, show reset button instead of start & show generated cards
         let button = <div></div>
         let startOrReset = this.props.isStarting? <span>RESET</span> : <span>START THE GAME</span>
-        if(this.props.isLoading === false){
+        if(this.props.loading === false){
           button = <button className={ this.props.isStarting ? 'gameButton--active' : 'gameButton'} onClick={this.props.startGame.bind(this)}>{startOrReset}</button>
         }
 
-        let loadingPage= this.props.isLoading? <div className="loaderWrapper"><div className="loader">LOADING</div></div> : <div className="hiddenDiv"></div>
+        let loadingPage= this.props.loading? <div className="loaderWrapper"><div className="loader">LOADING</div></div> : <div className="hiddenDiv"></div>
 
         return (
             <div className={ this.props.isStarting ? 'scoreBoard--active' : 'scoreBoard'}>

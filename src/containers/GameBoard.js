@@ -8,6 +8,7 @@ import '../css/GameBoard.css'
 
 class GameBoard extends Component {
 
+
     componentDidUpdate(){
       //show cards on random when start/reset button clicked
 
