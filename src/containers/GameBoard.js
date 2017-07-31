@@ -52,10 +52,12 @@ class GameBoard extends Component {
         this.props.gameComplete()
         setTimeout(()=>{
           this.props.startGame()
-        }, 2400)
+        }, 2600)
       }
 
-
+    }
+    handleImageLoaded = () => {
+        this.props.pageLoading()
     }
 
 
@@ -63,16 +65,10 @@ class GameBoard extends Component {
 
       let cardsList=[]
       let initialCards = []
-      let cardFrontStyle = {
-        backgroundImage: 'url(assets/img/back.jpg)',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover'
-      }
 
       //initial card background
       for(let i=0; i < 16; i++){
-        initialCards.push(<div key={i} className="initialCardsWrapper" style={cardFrontStyle}><span className="gameName">Memory Game</span></div>)
+        initialCards.push(<div key={i} className="initialCardsWrapper" ><img className="backgroundImg" onLoad={this.handleImageLoaded.bind(this)} src="assets/img/back.jpg" alt="backgroudImg" /></div>)
       }
 
       //generate cards

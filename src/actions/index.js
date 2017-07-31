@@ -1,5 +1,10 @@
 import * as types from './ActionTypes.js'
 
+export function pageLoading() {
+ return{
+   type: types.PAGE_LOADING
+ }
+}
 export function startGame() {
  return{
    type: types.START_GAME

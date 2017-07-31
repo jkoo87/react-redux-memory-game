@@ -18,15 +18,13 @@ class Card extends Component {
         backgroundSize: 'cover'
       }
 
-      let cardStyle = {
-        backgroundImage: 'url(' + this.props.card.img + ')'
-      }
+      let cardMatched = this.props.card.matched ? "cardBack_matched" : "cardBack"
 
 
         return (
             <div onClick={this.handleClickFlipCard.bind(this)}>
               <div className="cardFront" style={cardFrontStyle}><span className="gameNameOn">?</span></div>
-              <div className="cardBack" style={cardStyle}></div>
+              <img className={cardMatched} src={this.props.card.img} alt={this.props.cardName}/>
             </div>
         );
     }

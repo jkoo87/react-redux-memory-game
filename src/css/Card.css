@@ -1,3 +1,11 @@
+.backgroundImg{
+  width: 100%;
+  transition: 0.7s ease-out;
+}
+.initialCardsWrapper{
+  overflow: hidden;
+}
+
 .card, .card_active, .initialCardsWrapper{
   position: relative;
   display: inline-block;
@@ -24,7 +32,7 @@
   border: 2px solid;
 }
 
-.cardFront, .cardBack {
+.cardFront, .cardBack, .cardBack_matched {
   position: absolute;
   background-position: center;
   background-repeat: no-repeat;
@@ -37,18 +45,19 @@
   height: 100%;
 }
 
-.cardFront, .cardBack  {
+.cardFront, .cardBack, .cardBack_matched  {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transition: -webkit-transform 0.6s;
   transition: transform 0.6s;
 }
 
-.cardBack {
+.cardBack{
   background-color: white;
   -webkit-transform: rotateY(-180deg);
           transform: rotateY(-180deg);
 }
+
 
 .initialCardsWrapper:hover{
   transform: rotateY( 20deg );
@@ -56,11 +65,29 @@
   -webkit-transform: rotateY( 20deg );
   transition: 0.8s ease-out;
 }
-.card:hover .cardFront, .cardBack{
+.card:hover .cardFront, .cardBack, .cardBack_matched{
   border: 2px solid white;
   z-index: 1;
   transition: 0.4s ease-out;
 }
+
+.cardBack_matched{
+  background-color: #239a63;
+  border: 2px solid gold;
+  animation: cardMatched 2s 1;
+}
+
+@keyframes cardMatched {
+  from{
+    border: 2px solid gold;
+    background-color: gold;
+  }
+  to{
+    border: 2px solid gold;
+    background-color: #239a63;
+  }
+}
+
 .card:hover .gameNameOn{
   color: gold;
 }
@@ -70,7 +97,7 @@
           transform: rotateY(-180deg);
 }
 
-.card_active .cardBack {
+.card_active .cardBack  {
   -webkit-transform: rotateY(0);
           transform: rotateY(0);
 }
